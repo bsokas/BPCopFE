@@ -1,6 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document'
+import { augmentDocumentWithEmotionCache } from "./_app";
 
-export default function Document() {
+function Document() {
   return (
     <Html lang="en">
       <Head />
@@ -11,3 +12,6 @@ export default function Document() {
     </Html>
   )
 }
+
+augmentDocumentWithEmotionCache(Document)
+export default Document
