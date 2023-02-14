@@ -16,6 +16,9 @@ const useStyles = makeStyles()({
   mainContainer: {
     padding: 8,
   },
+  content: {
+    padding: 8,
+  },
   navMenu: {
     display: "flex",
     flexDirection: "row",
@@ -38,7 +41,7 @@ function App({ Component, pageProps }: AppProps) {
         <Button variant="contained" onClick={() => router.push("/metrics")}>Metrics</Button>
         <Button variant="contained">Add Entry</Button>
       </div>
-      <div>
+      <div className={classes.content}>
         <Component {...pageProps} />
       </div>
     </main >
