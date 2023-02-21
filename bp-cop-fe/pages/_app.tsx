@@ -14,10 +14,14 @@ export { augmentDocumentWithEmotionCache };
 
 const useStyles = makeStyles()({
   mainContainer: {
+    height: '100vh',
+    display: 'grid',
+    gridTemplateRows: '1fr 11fr',
     padding: 8,
   },
   content: {
     padding: 8,
+    height: 'auto'
   },
   navMenu: {
     display: "flex",

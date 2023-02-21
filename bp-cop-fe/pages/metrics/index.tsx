@@ -1,9 +1,11 @@
 import { makeStyles } from "tss-react/mui"
 import { LineChart, XAxis, Tooltip, CartesianGrid, Line, ResponsiveContainer, YAxis, Legend } from "recharts"
+import BloodPressureGraph from "./BloodPressureGraph";
 
 const useStyles = makeStyles()({
     metricsContainer: {
         display: 'flex',
+        height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
         gap: 16,
@@ -11,6 +13,7 @@ const useStyles = makeStyles()({
     charts: {
         display: 'flex',
         height: '100%',
+        width: '100%',
         marginTop: 25,
         flexDirection: 'column'
     }
@@ -68,7 +71,8 @@ export default function () {
         <div className={classes.metricsContainer}>
             {/* <h1>Metrics</h1> */}
             <div className={classes.charts}>
-                <LineChart
+                <BloodPressureGraph />
+                {/* <LineChart
                     width={700}
                     height={500}
                     data={data}
@@ -85,7 +89,7 @@ export default function () {
                     <Legend />
                     <Line type="monotone" dataKey="systolicMMHg" stroke="#8884d8" activeDot={{ r: 8 }} />
                     <Line type="monotone" width={20} dataKey="diastolicMMHg" stroke="orange" />
-                </LineChart>
+                </LineChart> */}
             </div>
         </div>
     )
