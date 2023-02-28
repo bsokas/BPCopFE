@@ -7,6 +7,10 @@ const fetcher: Fetcher<BloodPressureReadings, string> = (url: string) => fetch(u
 
 export default function BloodPressureGraph() {
     const { data, error } = useSWR<BloodPressureReadings, Error>(bloodPressureEndpoint, fetcher)
+    const formatDateTick = (value: string) => {
+        const asDate = new Date(value)
+        return `${asDate.getMonth()}/${asDate.getDate()}/${asDate.getFullYear()}`
+    }
 
     if (error) {
         return (
@@ -20,9 +24,9 @@ export default function BloodPressureGraph() {
     return (
         <>
             <ResponsiveContainer width={"100%"} height={500} >
-                <LineChart width={700} height={600} data={data?.readings}>
-                    <XAxis dataKey={'createdAt'} />
-                    <YAxis /*domain={[110, 200]}*/ />
+                <LineChart width={800} height={600} data={data?.readings}>
+                    <XAxis dataKey={'recordedAt'} /*tickFormatter={formatDateTick}*/ />
+                    <YAxis domain={[0, 200]} />
                     <Tooltip />
                     <Legend />
                     <Line type="monotone" dataKey="systolicMMHg" strokeWidth={3} stroke="red" />
