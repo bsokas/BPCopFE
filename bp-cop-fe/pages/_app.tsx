@@ -43,7 +43,7 @@ function App({ Component, pageProps }: AppProps) {
     <main className={classes.mainContainer}>
       <div className={classes.navMenu}>
         <Button variant="contained" onClick={() => router.push("/metrics")}>Metrics</Button>
-        <Button variant="contained">Add Entry</Button>
+        <Button variant="contained" onClick={() => router.push("/add-entry")}>Add Entry</Button>
       </div>
       <div className={classes.content}>
         <Component {...pageProps} />
